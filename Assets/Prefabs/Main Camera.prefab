@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4698560410798984}
+  - component: {fileID: 114626935745471294}
   - component: {fileID: 20103953789988856}
-  - component: {fileID: 92813130874020092}
   - component: {fileID: 124658875651175458}
   - component: {fileID: 81269900732360974}
   - component: {fileID: 114994368771170704}
@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564302813469524}
   m_LocalRotation: {x: 0.25455618, y: 0.65969783, z: -0.25455618, w: 0.65969783}
-  m_LocalPosition: {x: -37, y: 40, z: 0}
+  m_LocalPosition: {x: -37, y: 32.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,13 +89,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564302813469524}
   m_Enabled: 1
---- !u!92 &92813130874020092
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1564302813469524}
-  m_Enabled: 1
 --- !u!114 &114006605286271176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,6 +106,9 @@ MonoBehaviour:
   TileLocked: 0
   UnitsFinished: 0
   UnitsToFinish: 0
+  CurrentLevel: 0
+  NextLevel: 0
+  CurrentLevelSize: 
 --- !u!114 &114326298758675538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,6 +123,24 @@ MonoBehaviour:
   EnableLog: 0
   SelectedTile: {fileID: 0}
   SelectedUnit: {fileID: 0}
+--- !u!114 &114626935745471294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564302813469524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786319a8a5edf2d4fb6fa9559935a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelsInfo:
+  - GridSize: 3x3
+    QtyOfLevels: 4
+  - GridSize: 4x4
+    QtyOfLevels: 6
+  - GridSize: 5x5
+    QtyOfLevels: 1
 --- !u!114 &114994368771170704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,8 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gradient:
     serializedVersion: 2
-    key0: {r: 0.16834284, g: 0.6350703, b: 0.9150943, a: 1}
-    key1: {r: 1, g: 0.9078692, b: 0.6367924, a: 1}
+    key0: {r: 1, g: 0.30980393, b: 0.32156864, a: 1}
+    key1: {r: 0.9725491, g: 0.6117647, b: 0.32941177, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}

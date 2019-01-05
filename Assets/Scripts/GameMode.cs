@@ -15,28 +15,42 @@ public class GameMode : MonoBehaviour {
     public int TileLocked; //How many tiles have been locked
     public int UnitsFinished; //How many units have walked on the finishing tile
     public int UnitsToFinish; //Quantity of units that are on the board
-    public int CurrentLevel; //Current Level
-    public string NextLevelName; //NameOfNextLevel
+    public int CurrentLevel; //Current Level ID
+    public int NextLevel; //Next Level ID
+    public string CurrentLevelSize; //Current grid size
+
+    string LevelToOpen; //Level name to open when calling OpenLevel()
 
 
-    void Start() // Use this for initialization
+    void Start() 
     {
+        Application.targetFrameRate = 60;
+
         if (!Grid) { Debug.Log("Please set the grid reference on the camera object"); }
         else
         {
+            //Create an empty array to keep track of which cube has been locked.
             LockedTiles = new GameObject[Grid.GetComponent<GridMaker>().CubeArray.Length];
 
+            //Get how many tiles there are to lock & how many units that have to reach the end tile.
             TilesToLock = Grid.GetComponent<GridMaker>().CubeArray.Length - Grid.GetComponent<GridMaker>().ToDelete.Length - 1; //-1 accounts for the finishing tile
             UnitsToFinish = Grid.GetComponent<GridMaker>().StartTiles.Length;
 
-            LockStartTiles();
+            //Get current & Next level ID
+            if (SceneManager.GetActiveScene().name != "MainMenu")
+            {
+                // int.Parse(Regex.Replace(SceneManager.GetActiveScene().name, @"\D", "")), get int from scene name
+                CurrentLevel = int.Parse( SceneManager.GetActiveScene().name.ToString().Substring(4));
+                CurrentLevelSize = SceneManager.GetActiveScene().name.ToString().Substring(0,3);
+            }
+            else { CurrentLevel = 1; }
 
-            CurrentLevel = int.Parse(Regex.Replace(SceneManager.GetActiveScene().name, @"\D", ""));
-            NextLevelName = "Level" + (CurrentLevel + 1);
+            NextLevel = CurrentLevel + 1;
+            LockStartTiles();
         }
     }
 
-    public void LockTile(int TileID) //Locks a tile of the ID TileID
+    public void LockTile(int TileID) //Locks a tile of the ID TileID, meaning a unit walked on it.
     {
         LockedTiles[TileID] = Grid.GetComponent<GridMaker>().SpawnedTileList[TileID];
         LockedTiles[TileID].GetComponent<Tile_Interactions>().LockTile();
@@ -44,7 +58,7 @@ public class GameMode : MonoBehaviour {
         TileLocked++;
     }
 
-    public void CheckStatus()
+    public void CheckStatus() //Triggered whenever a unit reaches the end tile, checks if player won.
     {
         UnitsFinished++;
         
@@ -52,13 +66,13 @@ public class GameMode : MonoBehaviour {
         {
             if (TileLocked >= TilesToLock)
             {
-                Debug.Log("You win! Restarting");
-                SceneManager.LoadScene(NextLevelName) ;
+                Debug.Log("You win!");
+                OpenLevelDelay(NextLevel);
             }
             else
             {
                 Debug.Log("Not all tiles have been activated! Restarting ...");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                RestartLevel();
 
             }
         }
@@ -69,7 +83,7 @@ public class GameMode : MonoBehaviour {
         }
     }
 
-    void LockStartTiles() //Locks start tiles, as unit spawn on them
+    void LockStartTiles() //Locks the tiles where a unit has spawned.
     {
         foreach (int StartTileID in Grid.GetComponent<GridMaker>().StartTiles)
         {
@@ -80,5 +94,40 @@ public class GameMode : MonoBehaviour {
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OpenLevelDelay(int ID)
+    {
+        foreach (LevelLib i in GetComponent<LevelData>().LevelsInfo)
+        {
+            if (i.GridSize == CurrentLevelSize)
+            {
+                if(ID <= i.QtyOfLevels)
+                {
+                    LevelToOpen = CurrentLevelSize + "L" + ID;
+                    Invoke("OpenLevel", 1);
+                }
+                else { Invoke("OpenMainMenu", 1); }
+            }
+        }
+
+    }
+
+    public void OpenFirstLevel()
+    {
+        SceneManager.LoadScene("3x3L1");
+    }
+
+    void OpenLevel()
+    {
+        Debug.Log("Trying to open" + LevelToOpen);
+
+        SceneManager.LoadScene(LevelToOpen);
+
+    }
+
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

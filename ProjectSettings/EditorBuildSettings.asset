@@ -6,24 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Maps/Level1.unity
-    guid: f05e58654c74e5a4e9fe344db5845f95
+    path: Assets/Maps/MainMenu.unity
+    guid: 64d5715915463b842959a610d176ec73
   - enabled: 1
-    path: Assets/Maps/Level3.unity
-    guid: 218998430deccaa45bf8915b4e3acf10
+    path: Assets/Maps/3x3/3x3L1.unity
+    guid: 10bc433c1f1450440a4e642b6b676fc2
   - enabled: 1
-    path: Assets/Maps/Level2.unity
+    path: Assets/Maps/3x3/3x3L2.unity
+    guid: eb82d689ee4fffe4997357769f974cb9
+  - enabled: 1
+    path: Assets/Maps/3x3/3x3L3.unity
+    guid: 65e9fe30af21d524f839e659a70586f8
+  - enabled: 1
+    path: Assets/Maps/3x3/3x3L4.unity
+    guid: 57be6c7606e151a4b83f57c5b2452e33
+  - enabled: 1
+    path: Assets/Maps/4x4/4x4L1.unity
     guid: a965cc44f4d34df4b95c7a9e9964c49e
   - enabled: 1
-    path: Assets/Maps/Level4.unity
+    path: Assets/Maps/4x4/4x4L2.unity
     guid: 55743a906ed641d438ce7f5f245208eb
   - enabled: 1
-    path: Assets/Maps/Level5.unity
+    path: Assets/Maps/4x4/4x4L3.unity
     guid: 565fea6c899b8b9499660964ddbf604a
   - enabled: 1
-    path: Assets/Maps/Level6.unity
+    path: Assets/Maps/4x4/4x4L4.unity
     guid: b7d51c4c3c4625c4e88a50f8c3fc4d27
   - enabled: 1
-    path: Assets/Maps/Level7.unity
+    path: Assets/Maps/4x4/4x4L5.unity
     guid: 03cd09df6545c35488b14415a6bda72b
+  - enabled: 1
+    path: Assets/Maps/4x4/4x4L6.unity
+    guid: 7ac6f017b1e5bba438b0800f0651512d
+  - enabled: 1
+    path: Assets/Maps/5x5/5x5L1.unity
+    guid: 218998430deccaa45bf8915b4e3acf10
   m_configObjects: {}

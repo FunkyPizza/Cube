@@ -194,7 +194,7 @@ public enum B_Jump_Direction { Up, Down, Left, Right};
                         {
                             SpawnedTile.GetComponent<Tile_Interactions>().SetTileBonus(TileBonus.Jump);
 
-
+                            //TempBJump.Direction
                             switch (B_JumpArray[System.Array.IndexOf(B_JumpArray, TempBJump)].Direction)
                             {
                                 case B_Jump_Direction.Up:
@@ -214,17 +214,17 @@ public enum B_Jump_Direction { Up, Down, Left, Right};
                                     break;
 
                                 case B_Jump_Direction.Left:
-                                    if (CurrentTileSpawned + YSize >= 0 && CurrentTileSpawned + YSize <= XSize * YSize && !ToDelete.Contains<int>(CurrentTileSpawned + YSize))
+                                    if (CurrentTileSpawned + 2*YSize >= 0 && CurrentTileSpawned + 2*YSize <= XSize * YSize && !ToDelete.Contains<int>(CurrentTileSpawned + 2*YSize))
                                     {
                                         SpawnedTile.transform.Find("BonusSprite").transform.rotation *= new Quaternion(0, 0, 0.7071f, -0.7071f);
-                                        SpawnedTile.GetComponent<Tile_Interactions>().BJumpToTileID = CurrentTileSpawned + YSize;
+                                        SpawnedTile.GetComponent<Tile_Interactions>().BJumpToTileID = CurrentTileSpawned + 2*YSize;
                                     }
                                     break;
 
                                 case B_Jump_Direction.Right:
-                                    if (CurrentTileSpawned - YSize >= 0 && CurrentTileSpawned - YSize <= XSize * YSize && !ToDelete.Contains<int>(CurrentTileSpawned - YSize))
+                                    if (CurrentTileSpawned - 2*YSize >= 0 && CurrentTileSpawned - 2*YSize <= XSize * YSize && !ToDelete.Contains<int>(CurrentTileSpawned - 2*YSize))
                                     {
-                                        SpawnedTile.GetComponent<Tile_Interactions>().BJumpToTileID = CurrentTileSpawned - YSize;
+                                        SpawnedTile.GetComponent<Tile_Interactions>().BJumpToTileID = CurrentTileSpawned - 2*YSize;
                                         SpawnedTile.transform.Find("BonusSprite").transform.rotation *= new Quaternion(0, 0, 0.7071f, 0.7071f);
                                     }
                                     break;
@@ -294,14 +294,14 @@ public enum B_Jump_Direction { Up, Down, Left, Right};
         else {
             TempSE0.Direction = B_Jump_Direction.Down;
             if (B_JumpArray.Contains<B_Jump>(TempSE0))
-             {
+            {
                 return TempSE0;
             }
 
             else {
                 TempSE0.Direction = B_Jump_Direction.Left;
                 if (B_JumpArray.Contains<B_Jump>(TempSE0))
-                    {
+                {
                     return TempSE0;
                 }
 

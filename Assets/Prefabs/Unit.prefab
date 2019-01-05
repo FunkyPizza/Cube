@@ -124,6 +124,7 @@ MonoBehaviour:
   AnimationSpeedInS: 0.5
   AnimationTrigger: 0
   LerpValue: 0
+  KillTile: 0
 --- !u!135 &135355776962708964
 SphereCollider:
   m_ObjectHideFlags: 1
