@@ -150,7 +150,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -300}
+  m_SizeDelta: {x: 0, y: -240}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &35471432
 MonoBehaviour:
@@ -1925,7 +1925,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1148211355}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1676434404}
+        m_MethodName: ToggleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1148211355
@@ -2002,6 +2013,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114626935745471294, guid: af4b1a932610a894eb31a9ae52412713,
+        type: 2}
+      propertyPath: LevelsInfo.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4698560410798984, guid: af4b1a932610a894eb31a9ae52412713, type: 2}
       propertyPath: m_LocalPosition.x
       value: -37
@@ -2053,6 +2069,36 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114626935745471294, guid: af4b1a932610a894eb31a9ae52412713,
+        type: 2}
+      propertyPath: LevelsInfo.Array.data[3].GridSize
+      value: 6x6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114626935745471294, guid: af4b1a932610a894eb31a9ae52412713,
+        type: 2}
+      propertyPath: LevelsInfo.Array.data[3].QtyOfLevels
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114626935745471294, guid: af4b1a932610a894eb31a9ae52412713,
+        type: 2}
+      propertyPath: LevelsInfo.Array.data[4].GridSize
+      value: Bonus
+      objectReference: {fileID: 0}
+    - target: {fileID: 114626935745471294, guid: af4b1a932610a894eb31a9ae52412713,
+        type: 2}
+      propertyPath: LevelsInfo.Array.data[4].QtyOfLevels
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114626935745471294, guid: af4b1a932610a894eb31a9ae52412713,
+        type: 2}
+      propertyPath: LevelsInfo.Array.data[5].GridSize
+      value: 5x5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114626935745471294, guid: af4b1a932610a894eb31a9ae52412713,
+        type: 2}
+      propertyPath: LevelsInfo.Array.data[5].QtyOfLevels
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af4b1a932610a894eb31a9ae52412713, type: 2}
@@ -2384,7 +2430,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1384950975}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1676434404}
+        m_MethodName: ToggleVibes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1384950975
@@ -2976,6 +3033,7 @@ GameObject:
   - component: {fileID: 1676434401}
   - component: {fileID: 1676434400}
   - component: {fileID: 1676434403}
+  - component: {fileID: 1676434404}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -3110,6 +3168,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1676434404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1676434398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcabbedcd31581c4d8f68d87725e126a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundButton: {fileID: 1148211352}
+  VibesButton: {fileID: 1384950972}
+  SoundOn: {fileID: 21300000, guid: 7249f4d1786ef4c498698bada9832058, type: 3}
+  SoundOff: {fileID: 21300000, guid: 1d92973600e6e0e4dbfcc127ad81f85d, type: 3}
+  VibesOn: {fileID: 21300000, guid: 8eb5a38a5b5b621448a6136559740f3a, type: 3}
+  VibesOff: {fileID: 21300000, guid: 2e8273e89904e0c4d82083cf33c96d6b, type: 3}
 --- !u!1 &1712994631 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1502411579203026, guid: 3ebd6362803d92c4ca157d541aca448a,
@@ -3235,7 +3310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1920601997
 RectTransform:
   m_ObjectHideFlags: 0
